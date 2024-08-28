@@ -1,0 +1,52 @@
+
+<div class="mt-4 mx-3">
+  <button  class="btn btn-warning" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+  <span class="mx-3">Page {{ currentPage }} of {{ totalPages }}</span>
+  <button  class="btn btn-warning" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+</div>
+
+
+<div class="table-responsive m-5" *ngIf="allItemList.length > 0; else noData">
+  <table class="table align-middle mb-0">
+      <thead class="table-light">
+          <tr>
+              
+              <th scope="col">Item Code</th>
+              <th scope="col">Item Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Status</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let items of slicedList">
+              
+              <td>{{items.code }}</td>
+              <td>{{ items.shortdesc }}</td>
+              <td>{{ items.longdesc }}</td>
+              <td
+                  class="{{ items.isactive == 1 ? 'text-success' : 'text-danger' }}">
+                  <i class="ri-checkbox-circle-line fs-17 align-middle"></i>
+                  {{ items.isactive == 1 ? 'Active' : 'Inactive' }}
+              </td>
+              
+          </tr>
+      </tbody>
+  </table>
+  <!-- end table -->
+</div>
+<!-- end table responsive -->
+<ng-template #noData>
+  <div class="py-4 text-center">
+      <div>
+          <!-- <lord-icon src="https://cdn.lordicon.com/msoeawqm.json"
+              trigger="loop" colors="primary:#405189,secondary:#0ab39c"
+              style="width:72px;height:72px">
+          </lord-icon> -->
+
+      </div>
+      <div class="mt-4">
+          <h5>Sorry! No Result Found</h5>
+      </div>
+  </div>
+</ng-template>
+
