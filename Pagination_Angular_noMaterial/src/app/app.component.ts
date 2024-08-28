@@ -63,6 +63,11 @@ export class AppComponent implements OnInit {
       console.log("All Itme count: " + this.totalItems)
     })
   }
+  getEmptyRows() :any[]{
+    const rowsNeeded = this.itemsPerPage - this.slicedList.length;
+    return new Array(rowsNeeded).fill(null);
+  }
+  
 
   getColumnNames(data: any[]): string[] {
     if (data.length === 0) return [];
