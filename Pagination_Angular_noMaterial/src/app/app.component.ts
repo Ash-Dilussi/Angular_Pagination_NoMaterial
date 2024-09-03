@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
   @Input() currentPage = this.pageservice.page;
   @Input() itemsPerPage = this.pageservice.pageSize;
   @Input() totalItems: number = 100;
-  @Output() pageChanged: EventEmitter<number> = new EventEmitter();
+  startItemIndex : number = this.pageservice.startIndex;
+  endtItemIndex : number = this.pageservice.endIndex;
   totalPages: any;
 
   title = 'Pagination_Angular_noMaterial';
