@@ -15,4 +15,8 @@ export class AppService {
     return this._http.get<any>(this._baseURL + 'api/MItem/GetAllItemData');
   }
 
+  getDataByStatus(status: any): Observable<any[]> {
+    return this._http.get<any>(this._baseURL + 'api/MItem/GetItemList?state='+status);
+  }
+
 }

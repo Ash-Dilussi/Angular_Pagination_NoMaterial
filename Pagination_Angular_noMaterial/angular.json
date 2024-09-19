@@ -31,7 +31,10 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/remixicon/fonts/remixicon.css",
+              
+              "src/assets/scss/config/default/bootstrap.scss"
             ],
             "scripts": []
           },
